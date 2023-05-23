@@ -1,0 +1,15 @@
+<button mat-button [matMenuTriggerFor]="menu">Sort Products</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="sortProducts('price', 'high')">
+    Price: High To Low
+  </button>
+  <button mat-menu-item (click)="sortProducts('price', 'high')">
+    Price: Low To High
+  </button>
+  <button mat-menu-item (click)="sortProducts('price', 'high')">
+    Rate: High To Low
+  </button>
+  <button mat-menu-item (click)="sortProducts('price', 'high')">
+    Rate: Low To High
+  </button>
+</mat-menu>

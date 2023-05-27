@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -10,28 +10,31 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductCardComponent implements OnInit {
 
   productsByCategory!: Product[]
-  sortedProducts?: Product[]
-  addedToCart: boolean = false
+  // sortedProducts!: Product[]
+  // addedToCart: boolean = false
 
   constructor(private service: ProductService) { }
 
   ngOnInit(): void {
-    this.getProducstByCategory()
+    this.getProductsByCategory()
   }
 
-  getProducstByCategory() {
+  getProductsByCategory() {
     this.service.getProductsByCategory(this.category).subscribe(res => {
-      this.productsByCategory = res
-      this.sortedProducts = res
-    })
+      this.productsByCategory = res;
+
+      console.log("Sending data from Product Card:", this.productsByCategory); // Add this line to check the emitted value
+
+      this.service.eventKalimi(this.productsByCategory);
+    });
   }
 
-  @Input()
-  category!: string
+
+  @Input() category!: string;
 
   addToCart(product: Product) {
-    this.addedToCart = true
-    console.log(`Added ${product.title} to cart`)
+    // this.addedToCart = true
+    // console.log(`Added ${product.title} to cart`)
   }
 
 }

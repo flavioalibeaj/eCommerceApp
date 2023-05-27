@@ -8,10 +8,13 @@ import { Product } from '../model/product';
 })
 export class ProductService {
 
-  dataEmmiter = new EventEmitter<any>()
-  // shareProducts = new EventEmitter<Product[]>()
+  dataEmitter = new EventEmitter()
 
   constructor(private http: HttpClient) { }
+
+  eventKalimi(data: any) {
+    this.dataEmitter.emit(data)
+  }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>("https://fakestoreapi.com/products")
@@ -24,13 +27,5 @@ export class ProductService {
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http.get<Product[]>(`https://fakestoreapi.com/products/category/${category}`)
   }
-
-  passDataToSibling(data: any) {
-    this.dataEmmiter.emit(data)
-  }
-
-  // shareProductsBetweenSiblings(product: Product[]) {
-  //   this.shareProducts.emit(product)
-  // }
 
 }

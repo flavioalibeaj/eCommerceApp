@@ -19,20 +19,14 @@ export class HomeComponent implements OnInit {
     this.getProductCategories()
   }
 
-  getAllProducts(){
+  getAllProducts() {
     this.service.getProducts().subscribe(res => console.log(res))
   }
 
-  getProductCategories(){
+  getProductCategories() {
     this.service.getProductCategories().subscribe(res => {
       this.categories = res
     })
   }
-
-  // getFirstProductByCategory(category: string){
-  //   this.service.getProductByCategory(category).subscribe(res => {
-  //     this.productByCategories = res
-  //   })
-  // }
 
 }

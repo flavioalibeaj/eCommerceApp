@@ -9,11 +9,16 @@ import { Product } from '../model/product';
 export class ProductService {
 
   dataEmitter = new EventEmitter()
+  cardDataEmitter = new EventEmitter()
 
   constructor(private http: HttpClient) { }
 
   eventKalimi(data: any) {
     this.dataEmitter.emit(data)
+  }
+
+  cardEvent(data: any) {
+    this.cardDataEmitter.emit(data)
   }
 
   getProducts(): Observable<Product[]> {

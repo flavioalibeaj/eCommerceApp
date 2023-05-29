@@ -10,9 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductCardComponent implements OnInit {
 
   productsByCategory!: Product[]
-  productsInCart?: Product[]
-  // sortedProducts!: Product[]
-  // addedToCart: boolean = false
+  productsInCart: Product[] = []
 
   constructor(private service: ProductService) { }
 
@@ -24,24 +22,19 @@ export class ProductCardComponent implements OnInit {
     this.service.getProductsByCategory(this.category).subscribe(res => {
       this.productsByCategory = res;
 
-      console.log("Sending data from Product Card:", this.productsByCategory); // Add this line to check the emitted value
-
       this.service.eventKalimi(this.productsByCategory);
     });
   }
 
+  addToCart(product: Product) {
+    this.productsInCart.push(product)
+    // product.addedInCart = true
+
+    this.service.setData(this.productsInCart)
+  }
+
+
 
   @Input() category!: string;
-
-  addToCart(product: Product) {
-    this.productsInCart?.push(product)
-    this.service.cardDataEmitter.subscribe(value => {
-      // this.productsInCart?.push(value)
-      console.log("Value is: ", value)
-    })
-    console.log("Product is: ", product)
-    // this.addedToCart = true
-    // console.log(`Added ${product.title} to cart`)
-  }
 
 }

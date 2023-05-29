@@ -18,13 +18,11 @@ export class SortMenuComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.dataSubscription = this.service.dataEmitter.subscribe(value => {
       this.products = value;
-      console.log('Received data:', this.products);
     });
   }
 
   ngOnDestroy(): void {
     this.dataSubscription.unsubscribe()
-    console.log("On destroy")
   }
 
   // sortProducts(priceOrRate: string, highOrLow: string) {

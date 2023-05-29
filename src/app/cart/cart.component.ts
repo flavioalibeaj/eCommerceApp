@@ -9,17 +9,12 @@ import { Product } from '../model/product';
 })
 export class CartComponent implements OnInit {
 
-  productsInCard: Product[] | undefined
+  productsInCard!: Product[]
 
   constructor(private service: ProductService) { }
 
   ngOnInit(): void {
-    this.getProductsFromProductCard()
-  }
-
-  getProductsFromProductCard() {
-    this.service.cardEvent(this.productsInCard)
-    console.log("Added products to card in card component")
+    this.productsInCard = this.service.getData()
   }
 
 }

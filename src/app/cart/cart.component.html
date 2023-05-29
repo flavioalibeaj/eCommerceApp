@@ -1,1 +1,32 @@
-<p>cart works!</p>
+<div class="container">
+  <ng-container *ngIf="productsInCard; else noProducts">
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productsInCard; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            <img
+              src="{{ product.image }}"
+              alt="{{ product.description }}"
+              style="width: 100px"
+            />
+          </td>
+          <td>{{ product.title }}</td>
+          <td>{{ product.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <ng-template #noProducts>
+    <h1>No Products atm</h1>
+  </ng-template>
+</div>

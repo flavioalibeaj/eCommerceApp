@@ -10,6 +10,7 @@ export class ProductService {
 
   dataEmitter = new EventEmitter()
   cardDataEmitter = new EventEmitter()
+  private data: any
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +20,14 @@ export class ProductService {
 
   cardEvent(data: any) {
     this.cardDataEmitter.emit(data)
+  }
+
+  setData(data: any) {
+    this.data = data
+  }
+
+  getData() {
+    return this.data
   }
 
   getProducts(): Observable<Product[]> {
@@ -31,6 +40,10 @@ export class ProductService {
 
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http.get<Product[]>(`https://fakestoreapi.com/products/category/${category}`)
+  }
+
+  getProductByProductId(id: string): Observable<Product> {
+    return this.http.get<Product>(`https://fakestoreapi.com/products/${id}`)
   }
 
 }

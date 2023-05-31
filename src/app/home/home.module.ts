@@ -13,6 +13,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { ProductPageComponent } from './product-page/product-page.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { ProductPageCardComponent } from './product-page-card/product-page-card.component';
+import { ProductPageDescriptionComponent } from './product-page-description/product-page-description.component';
+import { ProductPageSimilarProdComponent } from './product-page-similar-prod/product-page-similar-prod.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +27,9 @@ import { ProductPageComponent } from './product-page/product-page.component';
     TabComponent,
     SortMenuComponent,
     ProductPageComponent,
+    ProductPageCardComponent,
+    ProductPageDescriptionComponent,
+    ProductPageSimilarProdComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +39,8 @@ import { ProductPageComponent } from './product-page/product-page.component';
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
+    MatDividerModule,
+    MatGridListModule
   ]
 })
 export class HomeModule { }

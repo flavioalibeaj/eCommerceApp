@@ -1,1 +1,13 @@
-<p>product-page works!</p>
+<div class="container d-flex gap-5">
+  <div class="left col-7">
+    <app-product-page-card [product]="product"></app-product-page-card>
+    <app-product-page-description
+      [product]="product"
+    ></app-product-page-description>
+  </div>
+  <div class="right col d-flex flex-column">
+    <app-product-page-similar-prod
+      [similarProducts]="similarProducts"
+    ></app-product-page-similar-prod>
+  </div>
+</div>

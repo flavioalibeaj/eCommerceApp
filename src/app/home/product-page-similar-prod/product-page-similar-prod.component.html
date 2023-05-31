@@ -1,0 +1,16 @@
+<h1>Similar Products</h1>
+<div class="d-flex flex-column gap-3">
+  <mat-card
+    *ngFor="let product of similarProducts"
+    class="example-card"
+    [routerLink]="['../../', product.id, product.category]"
+  >
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ product.title }}</mat-card-title>
+        <mat-card-subtitle>{{ product.price }}</mat-card-subtitle>
+        <img mat-card-sm-image [src]="[product.image]" />
+      </mat-card-title-group>
+    </mat-card-header>
+  </mat-card>
+</div>

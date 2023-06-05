@@ -25,50 +25,6 @@ export class SortMenuComponent implements OnInit, OnDestroy {
     this.dataSubscription.unsubscribe()
   }
 
-  // sortProducts(priceOrRate: string, highOrLow: string) {
-  //   if (priceOrRate === "price" && highOrLow === "low") {
-  //     for (let i = 0; i < this.products.length; i++) {
-  //       for (let j = i + 1; j < this.products.length; j++) {
-  //         if (this.products[i].price > this.products[j].price) {
-  //           let temp = this.products[i]
-  //           this.products[i] = this.products[j]
-  //           this.products[j] = temp
-  //         }
-  //       }
-  //     }
-  //   } else if (priceOrRate === "price" && highOrLow === "high") {
-  //     for (let i = 0; i < this.products.length; i++) {
-  //       for (let j = i + 1; j < this.products.length; j++) {
-  //         if (this.products[i].price < this.products[j].price) {
-  //           let temp = this.products[i]
-  //           this.products[i] = this.products[j]
-  //           this.products[j] = temp
-  //         }
-  //       }
-  //     }
-  //   } else if (priceOrRate === "rate" && highOrLow === "high") {
-  //     for (let i = 0; i < this.products.length; i++) {
-  //       for (let j = i + 1; j < this.products.length; j++) {
-  //         if (this.products[i].rating.rate < this.products[j].rating.rate) {
-  //           let temp = this.products[i]
-  //           this.products[i] = this.products[j]
-  //           this.products[j] = temp
-  //         }
-  //       }
-  //     }
-  //   } else if (priceOrRate === "rate" && highOrLow === "low") {
-  //     for (let i = 0; i < this.products.length; i++) {
-  //       for (let j = i + 1; j < this.products.length; j++) {
-  //         if (this.products[i].rating.rate > this.products[j].rating.rate) {
-  //           let temp = this.products[i]
-  //           this.products[i] = this.products[j]
-  //           this.products[j] = temp
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
   sortProducts(priceOrRate: string, highOrLow: string) {
     const compareFunction = (a: Product, b: Product) => {
       if (priceOrRate === "price") {
@@ -80,6 +36,7 @@ export class SortMenuComponent implements OnInit, OnDestroy {
     };
 
     this.products.sort(compareFunction);
+    // console.log(this.products)
   }
 
 }

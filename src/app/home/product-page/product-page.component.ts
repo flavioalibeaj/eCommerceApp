@@ -22,7 +22,7 @@ export class ProductPageComponent implements OnInit {
       this.productId = params['id'];
       this.productCategory = params['category'];
       this.getProductByProductId();
-      this.getProductsByProductCategory();
+      // this.getProductsByProductCategory();
     });
   }
 
@@ -30,6 +30,7 @@ export class ProductPageComponent implements OnInit {
     this.service.getProductByProductId(this.productId).subscribe(res => {
       this.product = res
     })
+    this.getProductsByProductCategory();
   }
 
   getProductsByProductCategory() {

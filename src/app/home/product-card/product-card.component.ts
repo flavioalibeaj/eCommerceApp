@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product';
+import { CardService } from 'src/app/services/card.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class ProductCardComponent implements OnInit {
   productsByCategory!: Product[]
   productsInCart: Product[] = []
 
-  constructor(private service: ProductService) { }
+  constructor(private service: ProductService, private cartService: CardService) { }
 
   ngOnInit(): void {
     this.getProductsByCategory()
@@ -23,14 +24,20 @@ export class ProductCardComponent implements OnInit {
       this.productsByCategory = res;
 
       this.service.eventKalimi(this.productsByCategory);
+      // this.setToFalse()
     });
+
   }
 
-  addToCart(product: Product) {
-    this.productsInCart.push(product)
-    // product.addedInCart = true
+  // setToFalse() {
+  //   this.productsByCategory.forEach(prod => prod.addedInCart = false)
+  // }
 
-    this.service.setData(this.productsInCart)
+  addToCart(product: Product) {
+    product.addedInCart = true
+
+    this.cartService.addProductToCart(product)
+    // console.log("Prod Card", this.cartService.getCardProducts())
   }
 
 

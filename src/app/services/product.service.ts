@@ -22,12 +22,8 @@ export class ProductService {
     this.cardDataEmitter.emit(data)
   }
 
-  setData(data: any) {
-    this.data = data
-  }
-
-  getData() {
-    return this.data
+  transferCardProds(prods: Product[]) {
+    this.dataEmitter.emit(prods)
   }
 
   getProducts(): Observable<Product[]> {

@@ -30,7 +30,7 @@ export class SortMenuComponent implements OnInit, OnDestroy {
       if (priceOrRate === "price") {
         return highOrLow === "low" ? a.price - b.price : b.price - a.price;
       } else if (priceOrRate === "rate") {
-        return highOrLow === "low" ? a.rating.rate - b.rating.rate : b.rating.rate - a.rating.rate;
+        return highOrLow === "low" ? a.rating_rate - b.rating_rate : b.rating_rate - a.rating_rate;
       }
       return 0;
     };

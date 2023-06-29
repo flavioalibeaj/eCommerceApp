@@ -5,9 +5,7 @@ export interface Product {
   description: string
   category: string
   image: string
-  rating: {
-    rate: number
-    count: number
-  }
+  rating_rate: number
+  rating_count: number
   addedInCart: boolean
 }

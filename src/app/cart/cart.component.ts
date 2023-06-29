@@ -16,19 +16,27 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CardService) { }
 
   ngOnInit(): void {
-    this.productsInCard = this.cartService.getCardProducts()
-    // localStorage.getItem("productsInCard")
+    // this.productsInCard = this.cartService.getCardProducts()
+    let data = localStorage.getItem("products")
+    if (data) this.productsInCard = JSON.parse(data)
   }
 
   deleteProduct(product: Product) {
     let index = this.productsInCard.findIndex(prod => prod === product)
     this.productsInCard.splice(index, 1)
     console.log("After delete", this.cartService.getCardProducts())
+    // this.cartService.deleteProduct(product)
   }
 
   deleteAll() {
     this.productsInCard = this.cartService.deleteAll()
     console.log("After delete all", this.cartService.getCardProducts())
+  }
+
+  getFromLocalStorage() {
+    // if (data) {
+    //   this.productsInCard = JSON.parse(data)
+    // }
   }
 
 }

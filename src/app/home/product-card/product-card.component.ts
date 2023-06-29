@@ -20,11 +20,12 @@ export class ProductCardComponent implements OnInit {
   }
 
   getProductsByCategory() {
-    this.service.getProductsByCategory(this.category).subscribe(res => {
+    this.service.getProductsByCategory(this.category).subscribe((res) => {
       this.productsByCategory = res;
-
       this.service.eventKalimi(this.productsByCategory);
       // this.setToFalse()
+    }, (err) => {
+      console.log("Error", err)
     });
 
   }

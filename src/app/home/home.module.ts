@@ -12,12 +12,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { ProductPageComponent } from './product-page/product-page.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { ProductPageCardComponent } from './product-page-card/product-page-card.component';
-import { ProductPageDescriptionComponent } from './product-page-description/product-page-description.component';
-import { ProductPageSimilarProdComponent } from './product-page-similar-prod/product-page-similar-prod.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +22,6 @@ import { ProductPageSimilarProdComponent } from './product-page-similar-prod/pro
     ProductCardComponent,
     TabComponent,
     SortMenuComponent,
-    ProductPageComponent,
-    ProductPageCardComponent,
-    ProductPageDescriptionComponent,
-    ProductPageSimilarProdComponent,
   ],
   imports: [
     CommonModule,

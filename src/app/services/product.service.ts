@@ -27,7 +27,7 @@ export class ProductService {
   }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>("https://fakestoreapi.com/products")
+    return this.http.get<Product[]>("http://localhost:3001/api/products")
   }
 
   getProductCategories(): Observable<string[]> {
@@ -35,11 +35,12 @@ export class ProductService {
   }
 
   getProductsByCategory(category: string): Observable<Product[]> {
-    return this.http.get<Product[]>(`https://fakestoreapi.com/products/category/${category}`)
+    return this.http.get<Product[]>(`http://localhost:3001/api/products/${category}`)
   }
 
-  getProductByProductId(id: string): Observable<Product> {
-    return this.http.get<Product>(`https://fakestoreapi.com/products/${id}`)
+  getProductByProductId(id: string | number): Observable<Product> {
+    // console.log(`Tipi i id: ${id} eshte ${typeof id}`)
+    return this.http.get<Product>(`http://localhost:3001/api/products/${id}`)
   }
 
 }

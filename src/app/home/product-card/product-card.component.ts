@@ -30,8 +30,8 @@ export class ProductCardComponent implements OnInit {
   //     (err) => {
   //       console.log("Error", err)
   //     });
-
   // }
+
   getProductsByCategory() {
     this.service.getProductsByCategory(this.category).subscribe(
       (res) => {
@@ -42,7 +42,6 @@ export class ProductCardComponent implements OnInit {
       (err) => {
         console.log("Error", err)
       });
-
   }
 
   // setToFalse() {

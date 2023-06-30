@@ -55,8 +55,8 @@ export class ProductService {
   }
 
   getProductByProductId(id: string | number): Observable<Product> {
-    // console.log(`Tipi i id: ${id} eshte ${typeof id}`)
-    return this.http.get<Product>(`http://localhost:3001/api/products/${id}`)
+    // return this.http.get<Product>(`http://localhost:3001/api/products/${id}`)
+    return this.http.get<Product>(`http://localhost:3001/${id}`)
   }
 
 }

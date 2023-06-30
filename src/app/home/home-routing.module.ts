@@ -4,7 +4,6 @@ import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  // { path: ":id/:category", loadChildren: () => import("../product-page/product-page.module").then(m => m.ProductPageModule) },
   { path: ":id", loadChildren: () => import("../product-page/product-page.module").then(m => m.ProductPageModule) },
 ];
 

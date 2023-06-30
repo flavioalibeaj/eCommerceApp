@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Category } from 'src/app/model/category';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -10,5 +11,6 @@ import { ProductService } from 'src/app/services/product.service';
 export class TabComponent {
 
   @Input()
-  categories!: string[]
+  // categories!: Category[]
+  categories!: string
 }

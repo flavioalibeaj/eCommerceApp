@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Category } from 'src/app/model/category';
 
 @Component({
   selector: 'app-carousel',
@@ -9,5 +10,6 @@ export class CarouselComponent {
 
 
   @Input()
-    categories!: string[]
+  // categories!: Category[]
+  categories!: string
 }

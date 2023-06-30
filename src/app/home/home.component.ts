@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../model/product';
+import { Category } from '../model/category';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,8 @@ import { Product } from '../model/product';
 })
 export class HomeComponent implements OnInit {
 
-  categories!: string[]
+  // categories!: Category[]
+  categories!: string
   productByCategories!: Product[]
 
 
@@ -19,14 +21,29 @@ export class HomeComponent implements OnInit {
     this.getProductCategories()
   }
 
-  getAllProducts() {
-    this.service.getProducts().subscribe(res => console.log(res))
-  }
+  // getAllProducts() {
+  //   this.service.getProducts().subscribe(res => console.log(res))
+  // }
 
+  // getProductCategories() {
+  //   this.service.getProductCategories().subscribe(
+  //     (categories: Category[]) => {
+  //       this.categories = categories
+  //       // console.log("Pergjigja eshte", categories)
+  //     },
+  //     (err) => {
+  //       console.log(err)
+  //     })
+  // }
   getProductCategories() {
-    this.service.getProductCategories().subscribe(res => {
-      this.categories = res
-    })
+    this.service.getProductCategories().subscribe(
+      (categories: string) => {
+        this.categories = categories
+        // console.log("Pergjigja eshte", categories)
+      },
+      (err) => {
+        console.log(err)
+      })
   }
 
 }

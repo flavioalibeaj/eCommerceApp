@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Category } from 'src/app/model/category';
 import { Product } from 'src/app/model/product';
 import { CardService } from 'src/app/services/card.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -19,14 +20,28 @@ export class ProductCardComponent implements OnInit {
     this.getProductsByCategory()
   }
 
+  // getProductsByCategory() {
+  //   this.service.getProductsByCategory(this.category.category_name).subscribe(
+  //     (res) => {
+  //       this.productsByCategory = res;
+  //       this.service.eventKalimi(this.productsByCategory);
+  //       // this.setToFalse()
+  //     },
+  //     (err) => {
+  //       console.log("Error", err)
+  //     });
+
+  // }
   getProductsByCategory() {
-    this.service.getProductsByCategory(this.category).subscribe((res) => {
-      this.productsByCategory = res;
-      this.service.eventKalimi(this.productsByCategory);
-      // this.setToFalse()
-    }, (err) => {
-      console.log("Error", err)
-    });
+    this.service.getProductsByCategory(this.category).subscribe(
+      (res) => {
+        this.productsByCategory = res;
+        this.service.eventKalimi(this.productsByCategory);
+        // this.setToFalse()
+      },
+      (err) => {
+        console.log("Error", err)
+      });
 
   }
 
@@ -43,6 +58,7 @@ export class ProductCardComponent implements OnInit {
 
 
 
+  // @Input() category!: Category;
   @Input() category!: string;
 
 }

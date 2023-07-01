@@ -8,12 +8,8 @@ import { ProductCardComponent } from '../home/product-card/product-card.componen
 import { TabComponent } from '../home/tab/tab.component';
 import { SortMenuComponent } from '../home/sort-menu/sort-menu.component';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -27,12 +23,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     CommonModule,
     HomeRoutingModule,
     MatTabsModule,
-    MatCardModule,
     MatButtonModule,
-    MatIconModule,
     MatMenuModule,
-    MatDividerModule,
-    MatGridListModule
   ]
 })
 export class HomeModule { }
